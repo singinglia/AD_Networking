@@ -1,0 +1,14 @@
+For vineet's: try meta/transfer learning?
+
+Engineer features based on genes
+
+features represent clusters of genes
+
+For Vineet's: assess which clusters are predictive of Alzheimer's
+
+For Trey's: evaluate the features/clusters identified in Vineet's project
+
+For a cluster, assess which include interacting proteins and whether those are
+structural or functional interactions
+
+Alphafold2 (protein complexes) on a predictive cluster
