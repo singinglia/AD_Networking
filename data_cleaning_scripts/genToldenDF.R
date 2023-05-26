@@ -1,6 +1,6 @@
 library(biomaRt)
 library(dplyr)
-library(edgeR)
+# library(edgeR) #scoped on cpm
 
 DO_CPM <- TRUE
 
@@ -9,14 +9,12 @@ ensembl <- useEnsembl(biomart = "genes", dataset = "hsapiens_gene_ensembl")
 todenCounts = read.delim("D:/Classes/AD Project/toden_counts.txt", row.names = 1, sep = "\t")
 
 if (DO_CPM){
-  todenCounts = cpm(todenCounts)
+  todenCounts = edgeR::cpm(todenCounts)
   
   todenCounts = round(todenCounts*10000, 0)
   
   todenCounts = data.frame(todenCounts)
 }
-
-
 
 geneRef = getBM(attributes = c("ensembl_gene_id","external_gene_name", "hgnc_symbol"), 
                 filters = 'ensembl_gene_id', 
@@ -56,5 +54,5 @@ if (DO_CPM){
   write_name = "D:/Github/AD_Networking/data/cleaned_tolden_data_counts.csv"
 }
 
-
 readr::write_csv(final_state_only, write_name)
+
